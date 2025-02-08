@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        window.onload = function() {
+            // Get the URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const actionUrl = 'https://cyberdefender.hk/en-us/?search_public=result'; // Replace with your target URL
+
+            // Create a form to submit the parameters via POST
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = actionUrl;
+
+            // Append each parameter as a hidden input
+            for (const [key, value] of params) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                form.appendChild(input);
+            }
+
+            // Append the form to the body and submit it
+            document.body.appendChild(form);
+            form.submit();
+        };
+    </script>
+</head>
+<body>
+    <p>Redirecting you to the target site...</p>
+</body>
+</html>
